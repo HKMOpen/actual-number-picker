@@ -52,7 +52,7 @@ public class Coloring {
     }
 
     /**
-     * Destroys everything related to coloring.<br>
+     * Destroys everything related to coloring.
      */
     public static synchronized void destroy() {
         mInstance = null;
@@ -229,14 +229,14 @@ public class Coloring {
      * Creates a new drawable (implementation of the Drawable object may vary depending on OS version).<br>
      * Drawable will be colored with given color, and clipped to match given boundaries.
      *
-     * @param color Integer color used to color the output drawable
+     * @param color  Integer color used to color the output drawable
      * @param bounds Four-dimensional vector bounds
      * @return Colored and clipped drawable object
      */
     @SuppressWarnings("UnusedDeclaration")
     public Drawable createDrawable(int color, Rect bounds) {
         // init normal state drawable
-        Drawable drawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[] {
+        Drawable drawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[]{
                 color, color
         }).mutate();
         if (color == Color.TRANSPARENT) {
@@ -249,9 +249,9 @@ public class Coloring {
     /**
      * Colors the given drawable to a specified color. Uses mode SRC_ATOP.
      *
-     * @param context Which context to use
+     * @param context  Which context to use
      * @param drawable Which drawable to color
-     * @param color Which color to use
+     * @param color    Which color to use
      * @return A colored drawable ready for use
      */
     public Drawable colorDrawable(Context context, @Nullable Drawable drawable, int color) {
@@ -274,7 +274,7 @@ public class Coloring {
     /**
      * Colors the given drawable to a specified color set using the drawable wrapping technique.
      *
-     * @param drawable Which drawable to color
+     * @param drawable    Which drawable to color
      * @param colorStates Which color set to use
      * @return A colored drawable ready to use
      */
@@ -293,7 +293,7 @@ public class Coloring {
      * Colors the given drawable to a specified color using the drawable wrapping technique.
      *
      * @param drawable Which drawable to color
-     * @param color Which color to use
+     * @param color    Which color to use
      * @return A colored drawable ready to use
      */
     public Drawable colorDrawableWrap(Drawable drawable, int color) {
@@ -310,7 +310,7 @@ public class Coloring {
      * Tries to clone and just color filter the drawable. Uses mode SRC_ATOP.
      *
      * @param drawable Which drawable to color
-     * @param color Which color to use
+     * @param color    Which color to use
      * @return A colored drawable ready for use
      */
     @SuppressWarnings("RedundantCast")
@@ -341,9 +341,9 @@ public class Coloring {
      * Colors the given drawable to a specified color. Uses mode SRC_ATOP.<br>
      * Automatically loads a good quality bitmap from the {@code resourceId} if it is valid.
      *
-     * @param context Which context to use
+     * @param context    Which context to use
      * @param resourceId Which drawable resource to load
-     * @param color Which color to use
+     * @param color      Which color to use
      * @return A colored {@link Drawable} ready for use
      */
     public Drawable colorDrawable(Context context, int resourceId, int color) {
@@ -367,9 +367,9 @@ public class Coloring {
      * <br>
      * Note: <i>{@link Color#TRANSPARENT} can be used to supply a transparent state.</i>
      *
-     * @param normal Color for the idle state
-     * @param clicked Color for the clicked/pressed state
-     * @param checked Color for the checked/selected state
+     * @param normal     Color for the idle state
+     * @param clicked    Color for the clicked/pressed state
+     * @param checked    Color for the checked/selected state
      * @param shouldFade Set to true to enable the fading effect, false otherwise
      * @return A {@link StateListDrawable} drawable object ready for use
      */
@@ -378,27 +378,27 @@ public class Coloring {
     })
     public Drawable createStateDrawable(int normal, int clicked, int checked, boolean shouldFade) {
         // init state arrays
-        int[] selectedState = new int[] {
+        int[] selectedState = new int[]{
                 android.R.attr.state_selected
         };
-        int[] pressedState = new int[] {
+        int[] pressedState = new int[]{
                 android.R.attr.state_pressed
         };
-        int[] checkedState = new int[] {
+        int[] checkedState = new int[]{
                 android.R.attr.state_checked
         };
-        int[] focusedState = new int[] {
+        int[] focusedState = new int[]{
                 android.R.attr.state_focused
         };
-        int[] activatedState = new int[] {};
+        int[] activatedState = new int[]{};
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
-            activatedState = new int[] {
+            activatedState = new int[]{
                     android.R.attr.state_activated
             };
         }
 
         // init normal state drawable
-        Drawable normalDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[] {
+        Drawable normalDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[]{
                 normal, normal
         }).mutate();
         if (normal == Color.TRANSPARENT)
@@ -407,7 +407,7 @@ public class Coloring {
             normalDrawable.setBounds(BOUNDS, BOUNDS, BOUNDS, BOUNDS);
 
         // init clicked state drawable
-        Drawable clickedDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[] {
+        Drawable clickedDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[]{
                 clicked, clicked
         }).mutate();
         if (clicked == Color.TRANSPARENT)
@@ -416,7 +416,7 @@ public class Coloring {
             clickedDrawable.setBounds(BOUNDS, BOUNDS, BOUNDS, BOUNDS);
 
         // init checked state drawable
-        Drawable checkedDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[] {
+        Drawable checkedDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[]{
                 checked, checked
         }).mutate();
         if (checked == Color.TRANSPARENT)
@@ -425,7 +425,7 @@ public class Coloring {
             checkedDrawable.setBounds(BOUNDS, BOUNDS, BOUNDS, BOUNDS);
 
         // init focused state drawable (use normal color)
-        Drawable focusedDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[] {
+        Drawable focusedDrawable = new GradientDrawable(Orientation.BOTTOM_TOP, new int[]{
                 normal, normal
         }).mutate();
         if (normal == Color.TRANSPARENT)
@@ -445,15 +445,15 @@ public class Coloring {
         // add fade effect if applicable
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
             if (shouldFade) {
-                states.addState(new int[] {}, normalDrawable);
+                states.addState(new int[]{}, normalDrawable);
                 states.setEnterFadeDuration(0);
                 states.setExitFadeDuration(FADE_DURATION);
             } else {
                 states.addState(activatedState, clickedDrawable);
-                states.addState(new int[] {}, normalDrawable);
+                states.addState(new int[]{}, normalDrawable);
             }
         } else {
-            states.addState(new int[] {}, normalDrawable);
+            states.addState(new int[]{}, normalDrawable);
         }
 
         return states;
@@ -464,7 +464,7 @@ public class Coloring {
      *
      * @param normalColor Color for the idle ripple state
      * @param rippleColor Color for the clicked, pressed and focused ripple states
-     * @param bounds Clip/mask drawable to these rectangle bounds
+     * @param bounds      Clip/mask drawable to these rectangle bounds
      * @return A fully colored RippleDrawable instance
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -490,9 +490,9 @@ public class Coloring {
      * <br>
      * Note: <i>{@link Color#TRANSPARENT} can be used to supply a transparent state.</i>
      *
-     * @param normal Color for the idle state
-     * @param clicked Color for the clicked/pressed state
-     * @param checked Color for the checked/selected state
+     * @param normal     Color for the idle state
+     * @param clicked    Color for the clicked/pressed state
+     * @param checked    Color for the checked/selected state
      * @param shouldFade Set to true to enable the fading effect, false otherwise
      * @return A {@link StateListDrawable} drawable object ready for use
      */
@@ -503,7 +503,11 @@ public class Coloring {
     /**
      * Very similar to {@link #createBackgroundDrawable(int, int, int, boolean)}, adding only one more parameter.
      *
-     * @param bounds Clip/mask drawable to these rectangle bounds
+     * @param normal     xx
+     * @param clicked    xx
+     * @param checked    xx
+     * @param shouldFade xx
+     * @param bounds     Clip/mask drawable to these rectangle bounds
      * @return Clipped/masked drawable instance
      */
     public Drawable createBackgroundDrawable(int normal, int clicked, int checked, boolean shouldFade, Rect bounds) {
@@ -518,7 +522,7 @@ public class Coloring {
      * Similar to {@link #createContrastStateDrawable(Context, int, int, boolean, android.graphics.drawable.Drawable)} but using colors
      * only, no drawables.
      *
-     * @param normal Color normal state to this color
+     * @param normal            Color normal state to this color
      * @param clickedBackground Background color of the View that will show when view is clicked
      * @return The color state list that is in contrast with the on-click background color
      */
@@ -527,19 +531,19 @@ public class Coloring {
     })
     public ColorStateList createContrastStateColors(int normal, int clickedBackground) {
         // init state arrays
-        int[] normalState = new int[] {};
-        int[] selectedState = new int[] {
+        int[] normalState = new int[]{};
+        int[] selectedState = new int[]{
                 android.R.attr.state_selected
         };
-        int[] pressedState = new int[] {
+        int[] pressedState = new int[]{
                 android.R.attr.state_pressed
         };
-        int[] checkedState = new int[] {
+        int[] checkedState = new int[]{
                 android.R.attr.state_checked
         };
-        int[] activatedState = new int[] {};
+        int[] activatedState = new int[]{};
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
-            activatedState = new int[] {
+            activatedState = new int[]{
                     android.R.attr.state_activated
             };
         }
@@ -550,17 +554,17 @@ public class Coloring {
         int contrastColor = getContrastColor(clickedBackground);
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
-            stateIdentifiers = new int[][] {
+            stateIdentifiers = new int[][]{
                     selectedState, pressedState, checkedState, activatedState, normalState
             };
-            stateColors = new int[] {
+            stateColors = new int[]{
                     contrastColor, contrastColor, contrastColor, contrastColor, normal
             };
         } else {
-            stateIdentifiers = new int[][] {
+            stateIdentifiers = new int[][]{
                     selectedState, pressedState, checkedState, normalState
             };
-            stateColors = new int[] {
+            stateColors = new int[]{
                     contrastColor, contrastColor, contrastColor, normal
             };
         }
@@ -571,11 +575,11 @@ public class Coloring {
     /**
      * Similar to {@link #createBackgroundDrawable(int, int, int, boolean)} but with additional {@code original} drawable parameter.
      *
-     * @param context Which context to use
-     * @param normal Color normal state of the drawable to this color
+     * @param context           Which context to use
+     * @param normal            Color normal state of the drawable to this color
      * @param clickedBackground Background color of the View that will show when view is clicked
-     * @param shouldFade Set to true if the state list should have a fading effect
-     * @param original This drawable will be contrasted to the {@code clickedBackground} color on press
+     * @param shouldFade        Set to true if the state list should have a fading effect
+     * @param original          This drawable will be contrasted to the {@code clickedBackground} color on press
      * @return The state list drawable that is in contrast with the on-click background color
      */
     @SuppressLint({
@@ -595,18 +599,18 @@ public class Coloring {
         }
 
         // init state arrays
-        int[] selectedState = new int[] {
+        int[] selectedState = new int[]{
                 android.R.attr.state_selected
         };
-        int[] pressedState = new int[] {
+        int[] pressedState = new int[]{
                 android.R.attr.state_pressed
         };
-        int[] checkedState = new int[] {
+        int[] checkedState = new int[]{
                 android.R.attr.state_checked
         };
-        int[] activatedState = new int[] {};
+        int[] activatedState = new int[]{};
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
-            activatedState = new int[] {
+            activatedState = new int[]{
                     android.R.attr.state_activated
             };
         }
@@ -626,15 +630,15 @@ public class Coloring {
         // add fade effect if applicable
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
             if (shouldFade) {
-                states.addState(new int[] {}, normalStateDrawable);
+                states.addState(new int[]{}, normalStateDrawable);
                 states.setEnterFadeDuration(0);
                 states.setExitFadeDuration(FADE_DURATION);
             } else {
                 states.addState(activatedState, clickedStateDrawable);
-                states.addState(new int[] {}, normalStateDrawable);
+                states.addState(new int[]{}, normalStateDrawable);
             }
         } else {
-            states.addState(new int[] {}, normalStateDrawable);
+            states.addState(new int[]{}, normalStateDrawable);
         }
 
         return states;
@@ -644,9 +648,9 @@ public class Coloring {
      * Very similar to {@link #createContrastStateDrawable(Context context, int, int, boolean, android.graphics.drawable.Drawable)} but
      * creates a Ripple drawable available in Lollipop.
      *
-     * @param normal Color normal state of the drawable to this color
+     * @param normal            Color normal state of the drawable to this color
      * @param clickedBackground Background color of the View that will show when view is clicked
-     * @param original This drawable will be contrasted to the {@code clickedBackground} color on press
+     * @param original          This drawable will be contrasted to the {@code clickedBackground} color on press
      * @return The Ripple drawable that is in contrast with the on-click background color
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -663,16 +667,16 @@ public class Coloring {
      * This basically chooses between {@link #createContrastStateDrawable(Context, int, int, boolean, android.graphics.drawable.Drawable)}
      * and {@link #createContrastRippleDrawable(int, int, android.graphics.drawable.Drawable)} depending on the available API level.
      *
-     * @param context Which context to use
-     * @param normal Color normal state of the drawable to this color
+     * @param context           Which context to use
+     * @param normal            Color normal state of the drawable to this color
      * @param clickedBackground Background color of the View that will show when view is clicked
-     * @param shouldFade Set to true if the state list (pre-API 21) should have a fading effect
-     * @param original This drawable will be contrasted to the {@code clickedBackground} color on press (pre-API 21) or used for masking in
-     *            ripples on post-API 21
-     * @return The state list drawable (< API21) or a ripple drawable (>= API21) that is in contrast with the on-click background color
+     * @param shouldFade        Set to true if the state list (pre-API 21) should have a fading effect
+     * @param original          This drawable will be contrasted to the {@code clickedBackground} color on press (pre-API 21) or used for masking in
+     *                          ripples on post-API 21
+     * @return The state list drawable (smaller than API21) or a ripple drawable (greater equal API21) that is in contrast with the on-click background color
      */
     public Drawable createContrastBackgroundDrawable(Context context, int normal, int clickedBackground, boolean shouldFade,
-            Drawable original) {
+                                                     Drawable original) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             return createContrastRippleDrawable(normal, clickedBackground, original);
         } else {

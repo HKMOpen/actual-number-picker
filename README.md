@@ -52,25 +52,25 @@ First, define the View in your layout file (of course, you don't need to add all
     android:layout_centerHorizontal="true"
     android:layout_marginTop="25dp"
     android:background="#FFFF3040"
-    app:bar_color="@android:color/white"
-    app:bar_width="1dp"
-    app:bars_count="26"
-    app:controls_color="@android:color/white"
-    app:draw_over_controls="true"
-    app:draw_over_text="false"
-    app:fast_controls_color="@android:color/darker_gray"
-    app:highlight_color="#FFFF3040"
-    app:max_value="100"
-    app:min_value="0"
-    app:selection_color="#A0FF3040"
-    app:show_bars="true"
-    app:show_controls="true"
-    app:show_fast_controls="true"
-    app:show_highlight="true"
-    app:show_text="false"
-    app:text_color="@android:color/white"
-    app:text_size="16sp"
-    app:value="50" />
+    app:anp_bar_color="@android:color/white"
+    app:anp_bar_width="1dp"
+    app:anp_bars_count="26"
+    app:anp_controls_color="@android:color/white"
+    app:anp_draw_over_controls="true"
+    app:anp_draw_over_text="false"
+    app:anp_fast_controls_color="@android:color/darker_gray"
+    app:anp_highlight_color="#FFFF3040"
+    app:anp_max_value="100"
+    app:anp_min_value="0"
+    app:anp_selection_color="#A0FF3040"
+    app:anp_show_bars="true"
+    app:anp_show_controls="true"
+    app:anp_show_fast_controls="true"
+    app:anp_show_highlight="true"
+    app:anp_show_text="false"
+    app:anp_text_color="@android:color/white"
+    app:anp_text_size="16sp"
+    app:anp_value="50" />
 ```
 
 Then, from Java (your Activity or Fragment), you can easily get the view and attach the listener.
@@ -103,31 +103,31 @@ Explanation of attributes
 -------------------------
 Here are some short explanations for the attributes provided by the view. You can leave out any of them, values will get set to default ones.
 
-- `show_bars`: (**boolean**) Whether show the vertical lines or not.
-- `bars_count`: (**integer**) How many bars to show. Note that the number may be changed by 1 if symmetry issues occur (*ignored if bars are not visible*).
-- `bar_color`: (**color**) Recolors all of the vertical lines to the specified color (*ignored if bars are not visible*).
-- `bar_width`: (**dimension**) How wide should each bar be (*ignored if bars are not visible*).
-- `draw_over_text`: (**boolean**) Whether to show the bars over the text (*ignored if text or bars are not visible*).
-- `draw_over_controls`: (**boolean**) Whether to show the bars over the arrow controls (*ignored if controls or bars are not visible*).
+- `anp_show_bars`: (**boolean**) Whether show the vertical lines or not.
+- `anp_bars_count`: (**integer**) How many bars to show. Note that the number may be changed by 1 if symmetry issues occur (*ignored if bars are not visible*).
+- `anp_bar_color`: (**color**) Recolors all of the vertical lines to the specified color (*ignored if bars are not visible*).
+- `anp_bar_width`: (**dimension**) How wide should each bar be (*ignored if bars are not visible*).
+- `anp_draw_over_text`: (**boolean**) Whether to show the bars over the text (*ignored if text or bars are not visible*).
+- `anp_draw_over_controls`: (**boolean**) Whether to show the bars over the arrow controls (*ignored if controls or bars are not visible*).
 
-- `selection_color`: (**color**) The touch highlight color on each of the arrow controls (*ignored if controls are not visible*).
+- `anp_selection_color`: (**color**) The touch highlight color on each of the arrow controls (*ignored if controls are not visible*).
 
-- `show_highlight`: (**boolean**) Whether to show the blurry highlight behind each of the arrow controls (*ignored if controls are not visible*).
-- `highlight_color`: (**color**) Recolors the blurry highlight to the specified color (*ignored if controls or highlights are not visible*).
+- `anp_show_highlight`: (**boolean**) Whether to show the blurry highlight behind each of the arrow controls (*ignored if controls are not visible*).
+- `anp_highlight_color`: (**color**) Recolors the blurry highlight to the specified color (*ignored if controls or highlights are not visible*).
 
-- `show_controls`: (**boolean**) Whether to show the slow arrow controls or not.
-- `controls_color`: (**color**) Recolors all of the slow arrows to the specified color (*ignored if slow arrows are not visible*).
+- `anp_show_controls`: (**boolean**) Whether to show the slow arrow controls or not.
+- `anp_controls_color`: (**color**) Recolors all of the slow arrows to the specified color (*ignored if slow arrows are not visible*).
 
-- `show_fast_controls`: (**boolean**) Whether to show the fast arrow controls or not.
-- `fast_controls_color`: (**color**) Recolors all of the fast arrows to the specified color (*ignored if fast arrows are not visible*).
+- `anp_show_fast_controls`: (**boolean**) Whether to show the fast arrow controls or not.
+- `anp_fast_controls_color`: (**color**) Recolors all of the fast arrows to the specified color (*ignored if fast arrows are not visible*).
 
-- `show_text`: (**boolean**) Whether to show the text with the current number value or not.
-- `text_size`: (**dimension**) Set the current number value text size (*ignored if text is not shown*).
-- `text_color`: (**color**) Recolors the current number value text to the specified color (*ignored if text is not shown*).
+- `anp_show_text`: (**boolean**) Whether to show the text with the current number value or not.
+- `anp_text_size`: (**dimension**) Set the current number value text size (*ignored if text is not shown*).
+- `anp_text_color`: (**color**) Recolors the current number value text to the specified color (*ignored if text is not shown*).
 
-- `min_value`: (**integer**) How low can the value numbers go.
-- `max_value`: (**integer**) How high can the value numbers go.
-- `value`: (**integer**) Set the current value (*must be between `min_value` and `max_value`*).
+- `anp_min_value`: (**integer**) How low can the value numbers go.
+- `anp_max_value`: (**integer**) How high can the value numbers go.
+- `anp_value`: (**integer**) Set the current value (*must be between `min_value` and `max_value`*).
 
 Support
 -------

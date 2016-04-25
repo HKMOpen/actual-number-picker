@@ -137,21 +137,21 @@ public class ActualNumberPicker extends View {
         setClickable(true);
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.ActualNumberPicker, defStyleAttr, defStyleRes);
 
-        mShowBars = attributes.getBoolean(R.styleable.ActualNumberPicker_show_bars, true);
-        mShowControls = attributes.getBoolean(R.styleable.ActualNumberPicker_show_controls, true);
-        mShowFastControls = attributes.getBoolean(R.styleable.ActualNumberPicker_show_fast_controls, true);
+        mShowBars = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_show_bars, true);
+        mShowControls = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_show_controls, true);
+        mShowFastControls = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_show_fast_controls, true);
 
-        mDrawOverText = attributes.getBoolean(R.styleable.ActualNumberPicker_draw_over_text, false);
-        mDrawOverControls = attributes.getBoolean(R.styleable.ActualNumberPicker_draw_over_controls, true);
+        mDrawOverText = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_draw_over_text, false);
+        mDrawOverControls = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_draw_over_controls, true);
 
-        int barsColor = attributes.getColor(R.styleable.ActualNumberPicker_bar_color, Color.DKGRAY);
+        int barsColor = attributes.getColor(R.styleable.ActualNumberPicker_anp_bar_color, Color.DKGRAY);
         mBarPaint = new Paint();
         mBarPaint.setAntiAlias(true);
         mBarPaint.setStyle(Paint.Style.FILL);
         mBarPaint.setColor(barsColor);
 
-        mShowHighlight = attributes.getBoolean(R.styleable.ActualNumberPicker_show_highlight, true);
-        int highlightColor = attributes.getColor(R.styleable.ActualNumberPicker_highlight_color, Color.LTGRAY);
+        mShowHighlight = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_show_highlight, true);
+        int highlightColor = attributes.getColor(R.styleable.ActualNumberPicker_anp_highlight_color, Color.LTGRAY);
         mHighlightPaint = new Paint();
         mHighlightPaint.setAntiAlias(true);
         mHighlightPaint.setStyle(Paint.Style.FILL);
@@ -159,9 +159,9 @@ public class ActualNumberPicker extends View {
         mHighlightPaint.setMaskFilter(new BlurMaskFilter(10, BlurMaskFilter.Blur.NORMAL));
         mHighlightPaint.setAlpha(100);
 
-        mSelectionColor = attributes.getColor(R.styleable.ActualNumberPicker_selection_color, 0xB0444444);
+        mSelectionColor = attributes.getColor(R.styleable.ActualNumberPicker_anp_selection_color, 0xB0444444);
 
-        int textColor = attributes.getColor(R.styleable.ActualNumberPicker_text_color, Color.DKGRAY);
+        int textColor = attributes.getColor(R.styleable.ActualNumberPicker_anp_text_color, Color.DKGRAY);
         mTextPaint = new TextPaint();
         mTextPaint.setAntiAlias(true);
         mTextPaint.setTextAlign(Paint.Align.LEFT);
@@ -172,31 +172,31 @@ public class ActualNumberPicker extends View {
         mTextPaint.setStyle(Paint.Style.FILL);
         mTextPaint.setColor(textColor);
 
-        mTextSize = attributes.getDimension(R.styleable.ActualNumberPicker_text_size, mTextSize);
+        mTextSize = attributes.getDimension(R.styleable.ActualNumberPicker_anp_text_size, mTextSize);
         if (mTextSize != -1.0f) {
             mTextPaint.setTextSize(mTextSize);
         }
 
-        mShowText = attributes.getBoolean(R.styleable.ActualNumberPicker_show_text, mShowText);
+        mShowText = attributes.getBoolean(R.styleable.ActualNumberPicker_anp_show_text, mShowText);
 
-        mMinValue = attributes.getInt(R.styleable.ActualNumberPicker_min_value, mMinValue);
-        mMaxValue = attributes.getInt(R.styleable.ActualNumberPicker_max_value, mMaxValue);
+        mMinValue = attributes.getInt(R.styleable.ActualNumberPicker_anp_min_value, mMinValue);
+        mMaxValue = attributes.getInt(R.styleable.ActualNumberPicker_anp_max_value, mMaxValue);
         if (mMaxValue <= mMinValue) {
             throw new RuntimeException("Cannot use max_value " + mMaxValue + " because the min_value is " + mMinValue);
         }
 
-        mValue = attributes.getInt(R.styleable.ActualNumberPicker_value, (mMaxValue + mMinValue) / 2);
+        mValue = attributes.getInt(R.styleable.ActualNumberPicker_anp_value, (mMaxValue + mMinValue) / 2);
         if (mValue < mMinValue || mValue > mMaxValue) {
             throw new RuntimeException("Cannot use value " + mValue + " because it is out of range");
         }
 
-        mBarCount = attributes.getInteger(R.styleable.ActualNumberPicker_bars_count, DEFAULT_BAR_COUNT);
+        mBarCount = attributes.getInteger(R.styleable.ActualNumberPicker_anp_bars_count, DEFAULT_BAR_COUNT);
         if (mBarCount < 3) {
             mBarCount = DEFAULT_BAR_COUNT;
         }
 
         mMinBarWidth = context.getResources().getDimensionPixelSize(R.dimen.min_bar_width);
-        mBarWidth = attributes.getDimensionPixelSize(R.styleable.ActualNumberPicker_bar_width, mMinBarWidth);
+        mBarWidth = attributes.getDimensionPixelSize(R.styleable.ActualNumberPicker_anp_bar_width, mMinBarWidth);
         if (mBarWidth < mMinBarWidth) {
             mBarWidth = mMinBarWidth;
         }
@@ -234,7 +234,7 @@ public class ActualNumberPicker extends View {
      * @param context Which context to use for resources
      */
     private void loadControlIcons(@NonNull TypedArray attributes, @NonNull Context context) {
-        int controlsColor = attributes.getColor(R.styleable.ActualNumberPicker_controls_color, Color.DKGRAY);
+        int controlsColor = attributes.getColor(R.styleable.ActualNumberPicker_anp_controls_color, Color.DKGRAY);
         // noinspection deprecation
         Drawable arrLeft = context.getResources().getDrawable(R.drawable.ic_keyboard_arrow_left_black_24dp);
         arrLeft = Coloring.get().colorDrawable(context, arrLeft, controlsColor);
@@ -245,7 +245,7 @@ public class ActualNumberPicker extends View {
         arrRight = Coloring.get().colorDrawable(context, arrRight, controlsColor);
         mControlIcons.put(ARR_RIGHT, arrRight);
 
-        int fastControlsColor = attributes.getColor(R.styleable.ActualNumberPicker_fast_controls_color, Color.DKGRAY);
+        int fastControlsColor = attributes.getColor(R.styleable.ActualNumberPicker_anp_fast_controls_color, Color.DKGRAY);
         // noinspection deprecation
         Drawable fastArrLeft = context.getResources().getDrawable(R.drawable.ic_keyboard_2arrows_left_black_24dp);
         fastArrLeft = Coloring.get().colorDrawable(context, fastArrLeft, fastControlsColor);

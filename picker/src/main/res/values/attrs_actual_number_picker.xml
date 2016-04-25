@@ -2,30 +2,30 @@
 
     <declare-styleable name="ActualNumberPicker">
 
-        <attr name="show_bars" format="boolean|reference" />
-        <attr name="bars_count" format="integer|reference" />
-        <attr name="bar_color" format="color|reference" />
-        <attr name="bar_width" format="dimension|reference" />
-        <attr name="selection_color" format="color|reference" />
-        <attr name="draw_over_text" format="boolean|reference" />
-        <attr name="draw_over_controls" format="boolean|reference" />
+        <attr name="anp_show_bars" format="boolean|reference" />
+        <attr name="anp_bars_count" format="integer|reference" />
+        <attr name="anp_bar_color" format="color|reference" />
+        <attr name="anp_bar_width" format="dimension|reference" />
+        <attr name="anp_selection_color" format="color|reference" />
+        <attr name="anp_draw_over_text" format="boolean|reference" />
+        <attr name="anp_draw_over_controls" format="boolean|reference" />
 
-        <attr name="show_highlight" format="boolean|reference" />
-        <attr name="highlight_color" format="color|reference" />
+        <attr name="anp_show_highlight" format="boolean|reference" />
+        <attr name="anp_highlight_color" format="color|reference" />
 
-        <attr name="show_controls" format="boolean|reference" />
-        <attr name="controls_color" format="color|reference" />
+        <attr name="anp_show_controls" format="boolean|reference" />
+        <attr name="anp_controls_color" format="color|reference" />
 
-        <attr name="show_fast_controls" format="boolean|reference" />
-        <attr name="fast_controls_color" format="color|reference" />
+        <attr name="anp_show_fast_controls" format="boolean|reference" />
+        <attr name="anp_fast_controls_color" format="color|reference" />
 
-        <attr name="show_text" format="boolean|reference" />
-        <attr name="text_size" format="dimension|reference" />
-        <attr name="text_color" format="color|reference" />
+        <attr name="anp_show_text" format="boolean|reference" />
+        <attr name="anp_text_size" format="dimension|reference" />
+        <attr name="anp_text_color" format="color|reference" />
 
-        <attr name="value" format="integer|reference" />
-        <attr name="min_value" format="integer|reference" />
-        <attr name="max_value" format="integer|reference" />
+        <attr name="anp_value" format="integer|reference" />
+        <attr name="anp_min_value" format="integer|reference" />
+        <attr name="anp_max_value" format="integer|reference" />
 
     </declare-styleable>
 
